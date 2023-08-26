@@ -13,11 +13,11 @@ export default class Config {
   private constructor() {
     this.environment = {
       dimension: {
-        width: 800,
-        height: 600,
+        width: 768,
+        height: 1366,
       },
       debug: false,
-      backgroundColor: '#000000',
+      backgroundColor: '#88b1ea',
     };
   }
 

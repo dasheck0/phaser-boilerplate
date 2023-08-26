@@ -23,7 +23,10 @@ export default class SingleImageItem extends UI {
     super.layout(parent);
 
     this.image = this.scene.add.sprite(this.position.x, this.position.y, this.options.key);
+    this.addToGroup([this.image]);
     this.repositionImage();
+
+    console.log('actual depth: ' + this.depth, this.name);
 
     if (Config.getInstance().enviroment.debug) {
       this.debugGraphics.clear();

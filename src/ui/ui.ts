@@ -7,6 +7,7 @@ export interface UIOptions {
   type: string;
   position: Position;
   anchor?: Vector2;
+  group?: string;
   margin?: {
     top?: number;
     right?: number;
@@ -36,7 +37,9 @@ export default abstract class UI {
   public position: Vector2;
   public dimension: Dimension2;
   protected children: UI[] = [];
+  protected parent?: UI;
   protected debugGraphics: Phaser.GameObjects.Graphics;
+  public depth: number = 0;
 
   constructor(protected readonly name: string, protected readonly scene: BaseScene, protected readonly options: UIOptions) {
     this.position = { x: 0, y: 0 };
@@ -65,7 +68,17 @@ export default abstract class UI {
       this.debugGraphics.strokeRect(this.position.x, this.position.y, this.dimension.width, this.dimension.height);
     }
 
+    console.log('this.layout', this.depth, this.name);
+
     this.children.forEach(child => child.layout(this));
+  }
+
+  public setParent(parent: UI) {
+    this.parent = parent;
+
+    if (parent.depth) {
+      this.depth = parent.depth + 1;
+    }
   }
 
   public abstract populateChildren(): void;
@@ -75,41 +88,60 @@ export default abstract class UI {
     const y = this.options.position.relative ? this.options.position.y * parentDimension.height : this.options.position.y;
 
     this.position = {
-      x: x + (this.options.margin?.left || 0) + parentPosition.x,
-      y: y + (this.options.margin?.top || 0) + parentPosition.y,
+      x: x + (this.options.margin?.left || 0) + parentPosition.x - (this.options.margin?.right || 0),
+      y: y + (this.options.margin?.top || 0) + parentPosition.y - (this.options.margin?.bottom || 0),
     };
   }
 
   protected calculateDimension(parentDimension: Dimension2) {
     if (this.options.width) {
       this.dimension.width = this.options.width.relative ? this.options.width.value * parentDimension.width : this.options.width.value;
-
-      if (this.options.margin?.right && !this.options.width.ignoreMargin) {
-        this.dimension.width -= this.options.margin.right;
-      }
     } else {
       this.dimension.width = parentDimension.width - this.position.x;
-      if (this.options.margin?.right) {
-        this.dimension.width -= this.options.margin.right;
-      }
     }
 
     if (this.options.height) {
       this.dimension.height = this.options.height.relative ? this.options.height.value * parentDimension.height : this.options.height.value;
-
-      if (this.options.margin?.bottom && !this.options.height.ignoreMargin) {
-        this.dimension.height -= this.options.margin.bottom;
-      }
     } else {
       this.dimension.height = parentDimension.height - this.position.y;
-      if (this.options.margin?.bottom) {
-        this.dimension.height -= this.options.margin.bottom;
-      }
     }
 
     if (this.options.anchor) {
       this.position.x -= this.options.anchor.x * this.dimension.width;
       this.position.y -= this.options.anchor.y * this.dimension.height;
     }
+  }
+
+  protected addToGroup(items: (Phaser.GameObjects.Graphics | Phaser.GameObjects.Sprite)[]) {
+    const groupName = this.getGroupNameUntilParent();
+
+    if (groupName) {
+      const group = this.scene.getGroup(groupName);
+
+      if (group) {
+        items.forEach(item => {
+          const depth = parseFloat('1.' + '1'.repeat(this.depth));
+          item.setDepth(group.depth * depth);
+
+          console.log('depth', group.depth * depth, depth, item.name);
+
+          group.group.add(item);
+        });
+      }
+    } else {
+      console.warn(`Could not add items to group, because no group name was found for "${this.name}"`);
+    }
+  }
+
+  protected getGroupNameUntilParent(): string | undefined {
+    if (this.options.group) {
+      return this.options.group;
+    }
+
+    if (this.parent) {
+      return this.parent.getGroupNameUntilParent();
+    }
+
+    return undefined;
   }
 }

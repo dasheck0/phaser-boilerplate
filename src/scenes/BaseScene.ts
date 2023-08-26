@@ -2,7 +2,6 @@ import * as Phaser from 'phaser';
 import { PrefabStore } from '../prefabs/PrefabStore';
 import { Asset, ScenePluginAsset, SpriteSheetAsset } from '../types/asset.type';
 import { SceneConfiguration, SceneData } from '../types/scene.type';
-import AutoLayout from '../ui/autolayout.prefab';
 
 export interface GroupDefinition {
   name: string;
@@ -47,9 +46,7 @@ export default abstract class BaseScene extends Phaser.Scene {
     this.loadPrefabs().then(() => this.postCreate());
   }
 
-  protected postCreate() {
-    PrefabStore.getInstance().getPrefab<AutoLayout>('column').initialize();
-  }
+  protected abstract postCreate(): void;
 
   getGroup(name: string): GroupDefinition | undefined {
     return this.groups.find(group => group.name === name);

@@ -4,7 +4,7 @@ import SingleImageItem, { SingleImageItemOptions } from './singleImageItem';
 import UI from './ui';
 
 export interface ImageButtonOptions extends SingleImageItemOptions {
-  animation: 'none' | 'pinch';
+  animation: 'none' | 'pinch' | 'tint';
   animationDuration?: number;
 }
 
@@ -28,12 +28,27 @@ export default class ImageButton extends SingleImageItem {
       this.image.on('pointerup', () => {
         if (!this.isClicked) {
           this.isClicked = true;
+          const animationType = this.options.animation ?? 'tint';
 
-          if (this.options.animation === 'pinch' && this.image) {
+          if (animationType === 'pinch' && this.image) {
             this.scene.tweens.add({
               targets: this.image,
               scaleX: this.image.scaleX * 1.1,
               scaleY: this.image.scaleY * 1.1,
+              ease: 'Cubic',
+              duration: this.options.animationDuration ?? 50,
+              yoyo: true,
+              onComplete: () => {
+                this.isClicked = false;
+                this.onClicked?.call(this.onClickedContext);
+              },
+            });
+          }
+
+          if (animationType === 'tint' && this.image) {
+            this.scene.tweens.add({
+              targets: this.image,
+              alpha: { from: 1, to: 0.8 },
               ease: 'Cubic',
               duration: this.options.animationDuration ?? 50,
               yoyo: true,
