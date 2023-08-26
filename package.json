@@ -11,9 +11,13 @@
   "author": "Stefan Neidig <s.neidig@nanogiants.de> (https://appcom-interactive.de/)",
   "license": "MIT",
   "dependencies": {
+    "glob": "^10.3.3",
+    "lodash.foreach": "^4.5.0",
     "phaser": "^3.60.0"
   },
   "devDependencies": {
+    "@types/lodash.foreach": "^4.5.7",
+    "@types/node": "^20.5.3",
     "typescript": "^5.1.6",
     "vite": "^4.4.9"
   }

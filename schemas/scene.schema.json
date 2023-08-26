@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://example.com/scene.schema.json",
+  "title": "scene",
+  "description": "A phaser scene that can be loaded by the phaser boilerplate",
+  "type": "object",
+  "required": ["groups", "assets", "scenes", "prefabs"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "assets": {
+      "title": "assets",
+      "description": "A list of assets that can be used by the scene",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type", "url"],
+        "default": {
+          "type": "image",
+          "url": ""
+        },
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["image", "plugin", "sceneplugin", "audio", "spritesheet", "script"]
+          },
+          "url": {
+            "type": "string"
+          },
+          "sceneKey": {
+            "type": "string"
+          },
+          "frameWidth": {
+            "type": "integer"
+          },
+          "frameHeight": {
+            "type": "integer"
+          },
+          "frames": {
+            "type": "integer"
+          }
+        },
+        "if": {
+          "properties": {
+            "type": {
+              "enum": ["sceneplugin"]
+            }
+          }
+        },
+        "then": {
+          "required": ["sceneKey"]
+        },
+        "else": {
+          "if": {
+            "properties": {
+              "type": {
+                "enum": ["spritesheet"]
+              }
+            }
+          },
+          "then": {
+            "required": ["frameWidth", "frameHeight", "frames"]
+          }
+        }
+      }
+    },
+    "groups": {
+      "title": "groups",
+      "description": "A list of groups that can be used to organize assets",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "scenes": {
+      "title": "scenes",
+      "description": "A list of scenes, this scene can reference during runtime",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "prefabs": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "$ref": "basesprite.schema.json"
+          },
+          {
+            "$ref": "baseaudio.schema.json"
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

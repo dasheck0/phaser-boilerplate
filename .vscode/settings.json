@@ -1,0 +1,10 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "./src/**/*.gamestate.json"
+      ],
+      "url": "./schemas/gamestate.schema.json"
+    }
+  ]
+}

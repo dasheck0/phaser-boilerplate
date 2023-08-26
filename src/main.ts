@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-import HelloWorldScene from './HelloWorldScene';
+import TestScene from './scenes/TestScene';
 
 const config: Phaser.Types.Core.GameConfig = {
 	type: Phaser.AUTO,
@@ -13,7 +13,15 @@ const config: Phaser.Types.Core.GameConfig = {
 			gravity: { y: 200 },
 		},
 	},
-	scene: [HelloWorldScene],
+	scene: [TestScene],
 }
 
-export default new Phaser.Game(config)
+
+
+const game = new Phaser.Game(config)
+
+game.scene.start('test', {
+	configFile: 'scenes/test.scene.json'
+});
+
+export default game;
