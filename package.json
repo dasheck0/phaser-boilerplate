@@ -2,12 +2,25 @@
   "name": "dasheck0-phaser-boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "vite",
+    "prebuild": "rm -rf dist",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.umd.js"
+    }
+  },
+  "main": "./dist/main.umd.js",
+  "module": "./dist/main.mjs",
+  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "author": "Stefan Neidig <s.neidig@nanogiants.de> (https://appcom-interactive.de/)",
   "license": "MIT",
   "dependencies": {
@@ -16,8 +29,10 @@
     "phaser": "^3.60.0"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.3",
     "@types/lodash.foreach": "^4.5.7",
     "@types/node": "^20.5.3",
+    "rollup-plugin-typescript-paths": "^1.4.0",
     "typescript": "^5.1.6",
     "vite": "^4.4.9"
   }

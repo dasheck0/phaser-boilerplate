@@ -1,9 +1,9 @@
-import Prefab from '../decorators/prefab.decorator';
+import RegisterPrefab from '../decorators/prefab.decorator';
 import { PrefabStore } from '../prefabs/PrefabStore';
-import BaseScene from '../scenes/BaseScene';
+import { BaseScene } from '../scenes/BaseScene';
 import { hexColorToNumber } from '../utilities/transformation';
 import { validateHexColorString } from '../utilities/validation';
-import UI, { UIOptions } from './ui';
+import { UI, UIOptions } from './ui';
 
 export interface AutoLayoutOptions extends UIOptions {
   direction: 'horizontal' | 'vertical';
@@ -11,7 +11,7 @@ export interface AutoLayoutOptions extends UIOptions {
   backgroundAlpha?: number;
 }
 
-@Prefab('AutoLayout')
+@RegisterPrefab('AutoLayout')
 export default class AutoLayout extends UI {
   private background?: Phaser.GameObjects.Graphics;
 

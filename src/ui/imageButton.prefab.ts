@@ -1,14 +1,14 @@
-import Prefab from '../decorators/prefab.decorator';
-import BaseScene from '../scenes/BaseScene';
-import SingleImageItem, { SingleImageItemOptions } from './singleImageItem';
-import UI from './ui';
+import RegisterPrefab from '../decorators/prefab.decorator';
+import { BaseScene } from '../scenes/BaseScene';
+import { SingleImageItem, SingleImageItemOptions } from './singleImageItem';
+import { UI } from './ui';
 
 export interface ImageButtonOptions extends SingleImageItemOptions {
   animation: 'none' | 'pinch' | 'tint';
   animationDuration?: number;
 }
 
-@Prefab('ImageButton')
+@RegisterPrefab('ImageButton')
 export default class ImageButton extends SingleImageItem {
   private onClicked?: () => void;
   private onClickedContext?: any;

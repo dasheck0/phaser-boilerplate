@@ -16,17 +16,9 @@
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["vite/client", "node"],
+    "types": ["vite/client"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowJs": false,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve",
-    "baseUrl": "./",
-    "paths": {
-      "~/*": ["src/*"]
-    }
   },
-  "include": ["./src"],
-  "exclude": ["node_modules", "demo"]
+  "include": ["src/**/*.ts", "src/**/*.json"]
 }

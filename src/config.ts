@@ -6,7 +6,7 @@ export interface Environment {
   backgroundColor: string;
 }
 
-export default class Config {
+export class Config {
   private static instance: Config;
   private environment: Environment;
 

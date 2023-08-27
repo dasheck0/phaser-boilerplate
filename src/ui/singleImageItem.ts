@@ -1,7 +1,7 @@
-import Config from '../config';
-import BaseScene from '../scenes/BaseScene';
+import { Config } from '../config';
+import { BaseScene } from '../scenes/BaseScene';
 import { Vector2 } from '../types/math.type';
-import UI, { UIOptions } from './ui';
+import { UI, UIOptions } from './ui';
 
 export interface SingleImageItemOptions extends UIOptions {
   key: string;
@@ -12,7 +12,7 @@ export interface SingleImageItemOptions extends UIOptions {
   vAlignSelf?: 'start' | 'center' | 'end';
 }
 
-export default class SingleImageItem extends UI {
+export class SingleImageItem extends UI {
   protected image?: Phaser.GameObjects.Sprite;
 
   constructor(protected readonly name: string, protected readonly scene: BaseScene, protected readonly options: SingleImageItemOptions) {

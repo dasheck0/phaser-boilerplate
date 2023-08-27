@@ -1,8 +1,5 @@
-import BaseScene from '../scenes/BaseScene';
+import { BaseScene } from '../scenes/BaseScene';
 import { BaseOptions } from './base';
-import BaseSprite from './sprite.prefab';
-
-console.log('BaseSprite', BaseSprite);
 
 export type BaseClass<T extends BaseOptions> = {
   new (name: string, scene: BaseScene, options: T): any;
@@ -44,8 +41,6 @@ export class PrefabStore {
   public getPrefab<T>(id: string): T {
     const prefab = this.prefabs[id];
 
-    console.log('prefab', this.prefabs, prefab);
-
     if (!prefab) {
       throw new Error(`Prefab ${id} not found`);
     }
@@ -53,16 +48,33 @@ export class PrefabStore {
     return prefab as T;
   }
 
-  public async loadPrefabs() {
-    const modules = await import.meta.glob('../**/*.prefab.ts');
-    console.log('models', modules);
+  // public async loadPredefinedPrefabs() {
+  //   await this.loadPrefabs('../**/*.prefab.ts');
+  // }
 
+  // public async loadCustomPrefabs(path: string) {
+  //   await this.loadPrefabs(path);
+  // }
+
+  // private async loadPrefabs2(path: string) {
+  //   const modules = await import.meta.glob(path);
+
+  //   for (const path in modules) {
+  //     const module = (await modules[path]()) as PrefabModule;
+  //     const key = module.default.identifier;
+  //     this.prefabClasses[key] = module.default;
+  //   }
+  // }
+
+  public async loadPrefabs(modules: Record<string, () => Promise<unknown>>) {
     for (const path in modules) {
       const module = (await modules[path]()) as PrefabModule;
       const key = module.default.identifier;
       this.prefabClasses[key] = module.default;
-
-      console.log('Loaded prefab', key, module.default);
     }
+  }
+
+  public loadPrefab(id: string, prefab: BaseClass<any>) {
+    this.prefabClasses[id] = prefab;
   }
 }

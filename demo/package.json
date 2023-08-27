@@ -1,0 +1,22 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "author": "Stefan Neidig <s.neidig@nanogiants.de> (https://appcom-interactive.de/)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.5.6",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
+  },
+  "dependencies": {
+    "@dasheck0/phaser-boilerplate": "file:..",
+    "phaser": "^3.60.0"
+  }
+}

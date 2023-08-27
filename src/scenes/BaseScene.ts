@@ -14,7 +14,7 @@ export interface SceneDefinition {
   scene: Phaser.Scene;
 }
 
-export default abstract class BaseScene extends Phaser.Scene {
+export abstract class BaseScene extends Phaser.Scene {
   private configFile: string;
   protected configuration?: SceneConfiguration;
 
@@ -114,8 +114,6 @@ export default abstract class BaseScene extends Phaser.Scene {
           depth: index,
           group: groupToAdd,
         });
-
-        console.log('Created group', this.groups[this.groups.length - 1]);
       });
     }
   }
@@ -133,26 +131,18 @@ export default abstract class BaseScene extends Phaser.Scene {
           name: scene,
           scene: sceneToAdd,
         });
-
-        console.log('Created scene', this.scenes[this.scenes.length - 1]);
       });
     }
   }
 
   private async loadPrefabs() {
     if (this.configuration) {
-      console.log('start');
-      await PrefabStore.getInstance().loadPrefabs();
-      console.log('done');
+      // await PrefabStore.getInstance().loadPredefinedPrefabs();
 
       for (const name in this.configuration.prefabs) {
         const prefab = this.configuration.prefabs[name];
-        const result = PrefabStore.getInstance().instantiatePrefab(prefab.type, name, this, prefab.options);
-
-        console.log('result', result);
+        PrefabStore.getInstance().instantiatePrefab(prefab.type, name, this, prefab.options);
       }
-
-      console.log('fdonei');
     }
   }
 }

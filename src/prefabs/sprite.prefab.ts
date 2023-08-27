@@ -1,10 +1,9 @@
-import Config from '../config';
-import Prefab from '../decorators/prefab.decorator';
-import BaseScene from '../scenes/BaseScene';
+import { Config } from '../config';
+import RegisterPrefab from '../decorators/prefab.decorator';
+import { BaseScene } from '../scenes/BaseScene';
 import { Position, Vector2 } from '../types/math.type';
 import { calculatePosition } from '../utilities/position';
 import { BaseOptions } from './base';
-
 
 export interface SpriteOptions extends BaseOptions {
   key: string;
@@ -16,12 +15,10 @@ export interface SpriteOptions extends BaseOptions {
   alpha?: number;
 }
 
-@Prefab('BaseSprite')
-class BaseSprite extends Phaser.Physics.Arcade.Sprite {
+@RegisterPrefab('BaseSprite')
+export default class BaseSprite extends Phaser.Physics.Arcade.Sprite {
   constructor(public readonly name: string, public readonly scene: BaseScene, protected readonly options: SpriteOptions) {
     super(scene, options.position.x, options.position.y, options.key);
-
-    console.log("options", options);
 
     const { x, y } = calculatePosition(options.position, Config.getInstance().enviroment.dimension);
     this.setPosition(x, y);
@@ -51,5 +48,3 @@ class BaseSprite extends Phaser.Physics.Arcade.Sprite {
     this.scene.add.existing(this);
   }
 }
-
-export default BaseSprite;

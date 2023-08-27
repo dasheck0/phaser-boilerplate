@@ -1,5 +1,5 @@
-import Config from '../config';
-import BaseScene from '../scenes/BaseScene';
+import { Config } from '../config';
+import { BaseScene } from '../scenes/BaseScene';
 import { Dimension2, Position, Vector2 } from '../types/math.type';
 import { randomColor } from '../utilities/random';
 
@@ -33,7 +33,7 @@ export interface UIOptions {
   children?: UIOptions[];
 }
 
-export default abstract class UI {
+export abstract class UI {
   public position: Vector2;
   public dimension: Dimension2;
   protected children: UI[] = [];
