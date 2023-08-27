@@ -1,0 +1,14 @@
+{
+  "$schema": "../../schemas/environment.schema.json",
+  "dimension": {
+    "width": 768,
+    "height": 1366
+  },
+  "debug": true,
+  "backgroundColor": "#88b1ea",
+  "typography": {
+    "fontFamily": "Arial",
+    "baseFontSize": 16,
+    "scale": "major_third"
+  }
+}

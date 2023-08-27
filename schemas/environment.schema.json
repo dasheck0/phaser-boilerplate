@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "dimension": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": ["width", "height"]
+    },
+    "debug": {
+      "type": "boolean"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "pattern": "^#(?:[0-9a-fA-F]{3}){1,2}$"
+    },
+    "typography": {
+      "type": "object",
+      "properties": {
+        "fontFamily": {
+          "type": "string"
+        },
+        "baseFontSize": {
+          "type": "integer"
+        },
+        "scale": {
+          "type": "string",
+          "enum": [
+            "minor_second",
+            "major_second",
+            "minor_third",
+            "major_third",
+            "perfect_fourth",
+            "augmented_fourth",
+            "perfect_fifth",
+            "golden_ratio"
+          ]
+        }
+      },
+      "required": ["fontFamily", "baseFontSize", "scale"]
+    }
+  },
+  "required": ["dimension", "debug", "backgroundColor", "typography"]
+}

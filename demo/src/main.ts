@@ -1,9 +1,12 @@
 import Phaser from 'phaser';
 
 import { Config, PrefabStore } from '@dasheck0/phaser-boilerplate';
+import environment from './config.json';
 import TestScene from './scenes/TestScene';
 
 (async () => {
+  Config.getInstance().environment = environment;
+
   const modules = await import.meta.glob('./**/*.prefab.ts');
   await PrefabStore.getInstance().loadPrefabs(modules);
 
