@@ -132,3 +132,4 @@ dist
 public
 src/scenes/TestScene.ts
 src/main.ts
+!demo/public

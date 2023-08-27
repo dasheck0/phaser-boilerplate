@@ -1,0 +1,139 @@
+{
+  "$schema": "../../schemas/scene.schema.json",
+  "scenes": [],
+  "groups": ["background", "ui", "superui"],
+  "assets": [
+    {
+      "type": "image",
+      "name": "sample",
+      "url": "images/sample.png"
+    }
+  ],
+  "prefabs": {
+    "test": {
+      "type": "Test",
+      "options": {}
+    },
+    "pauseButton": {
+      "type": "ImageButton",
+      "options": {
+        "key": "sample",
+        "height": {
+          "value": 70,
+          "relative": false
+        },
+        "width": {
+          "value": 70,
+          "relative": false
+        },
+        "position": {
+          "x": 1,
+          "y": 0,
+          "relative": true
+        },
+        "anchor": {
+          "x": 1,
+          "y": 0
+        },
+        "margin": {
+          "top": 16,
+          "right": 16
+        }
+      }
+    },
+    "panel": {
+      "type": "AutoLayout",
+      "options": {
+        "direction": "vertical",
+        "group": "ui",
+        "width": {
+          "value": 1,
+          "relative": true
+        },
+        "height": {
+          "value": 438,
+          "relative": false
+        },
+        "backgroundColor": "#000000",
+        "backgroundAlpha": 0.5,
+        "anchor": {
+          "x": 0,
+          "y": 1
+        },
+        "position": {
+          "x": 0,
+          "y": 1,
+          "relative": true
+        },
+        "children": [
+          {
+            "type": "AutoLayout",
+            "direction": "horizontal",
+            "backgroundColor": "#ff0000",
+            "backgroundAlpha": 0.5,
+            "children": [
+              {
+                "type": "ImageButton",
+                "key": "sample",
+                "maxHeight": 112
+              },
+              {
+                "type": "ImageButton",
+                "key": "sample",
+                "maxHeight": 112
+              },
+              {
+                "type": "ImageButton",
+                "key": "sample",
+                "maxHeight": 112
+              }
+            ]
+          },
+          {
+            "type": "AutoLayout",
+            "direction": "horizontal",
+            "children": [
+              {
+                "type": "ImageButton",
+                "key": "sample",
+                "maxHeight": 112
+              },
+              {
+                "type": "ImageButton",
+                "key": "sample",
+                "maxHeight": 112
+              },
+              {
+                "type": "ImageButton",
+                "key": "sample",
+                "maxHeight": 112
+              }
+            ]
+          },
+          {
+            "type": "AutoLayout",
+            "direction": "horizontal",
+            "children": [
+              {
+                "type": "ImageButton",
+                "key": "sample",
+                "maxHeight": 112
+              },
+              {
+                "type": "ImageButton",
+                "key": "sample",
+                "maxHeight": 112
+              },
+              {
+                "type": "ImageButton",
+                "key": "sample",
+                "maxHeight": 112,
+                "animation": "tint"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
