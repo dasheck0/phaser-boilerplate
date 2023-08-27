@@ -21,8 +21,12 @@
   "files": [
     "dist"
   ],
-  "author": "Stefan Neidig <s.neidig@nanogiants.de> (https://appcom-interactive.de/)",
+  "author": "Stefan Neidig <stefan@rpdev.net>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dasheck0/phaser-boilerplate.git"
+  },
   "dependencies": {
     "glob": "^10.3.3",
     "lodash.foreach": "^4.5.0",
