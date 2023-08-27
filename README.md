@@ -6,7 +6,7 @@ Just a boilerplate library for phaser 3 game development.
 ## Usage
 <!-- section: Usage -->
 <!-- Show how to use it with a code example. Focus on the key features and do not include too much (that is for the Wiki). Also do not delve into the API to much. We'll get to that -->
-See 
+See [demo](https://github.com/dasheck0/phaser-boilerplate/tree/master/demo) to see how to use it.
 
 ## API
 <!-- section: API -->
