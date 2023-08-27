@@ -1,7 +1,7 @@
 {
   "name": "dasheck0-phaser-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Just a boilerplate library for phaser 3 game development.",
   "scripts": {
     "start": "vite",
     "prebuild": "rm -rf dist",
