@@ -112,7 +112,7 @@ export abstract class UI {
     }
   }
 
-  protected addToGroup(items: (Phaser.GameObjects.Graphics | Phaser.GameObjects.Sprite)[]) {
+  protected addToGroup(items: (Phaser.GameObjects.Graphics | Phaser.GameObjects.Sprite | Phaser.GameObjects.Text)[]) {
     const groupName = this.getGroupNameUntilParent();
 
     if (groupName) {

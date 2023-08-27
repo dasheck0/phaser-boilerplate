@@ -15,8 +15,9 @@ export * from './ui/autolayout.prefab';
 export * from './ui/image.prefab';
 export * from './ui/imageButton.prefab';
 export * from './ui/singleImageItem';
+export * from './ui/text.prefab';
 export * from './ui/ui';
 export { RegisterPrefab };
 
-import RegisterPrefab from './decorators/prefab.decorator';
+  import RegisterPrefab from './decorators/prefab.decorator';
 

@@ -1,4 +1,4 @@
-import { BaseScene, ImageButton, PrefabStore } from '@dasheck0/phaser-boilerplate';
+import { AutoLayout, BaseScene, PrefabStore } from '@dasheck0/phaser-boilerplate';
 
 export default class TestScene extends BaseScene {
   constructor() {
@@ -8,10 +8,8 @@ export default class TestScene extends BaseScene {
   protected postCreate(): void {
     console.log('postCreate');
 
-    PrefabStore.getInstance().getPrefab<ImageButton>('pauseButton').initialize();
-    PrefabStore.getInstance().getPrefab<ImageButton>('panel').initialize();
-
-    console.log(PrefabStore.getInstance().getPrefab('pauseButton'));
+    PrefabStore.getInstance().getPrefab<AutoLayout>('rows').initialize();
+    PrefabStore.getInstance().getPrefab<AutoLayout>('panel').initialize();
 
     console.log(PrefabStore.getInstance());
   }

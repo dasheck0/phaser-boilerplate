@@ -1,9 +1,15 @@
 import { Dimension2 } from './types/math.type';
+import { Scale } from './ui/text.prefab';
 
 export interface Environment {
   dimension: Dimension2;
   debug: boolean;
   backgroundColor: string;
+  typography: {
+    fontFamily: string;
+    baseFontSize: number;
+    scale: Scale;
+  };
 }
 
 export class Config {
@@ -16,8 +22,13 @@ export class Config {
         width: 768,
         height: 1366,
       },
-      debug: false,
+      debug: true,
       backgroundColor: '#88b1ea',
+      typography: {
+        fontFamily: 'Arial',
+        baseFontSize: 16,
+        scale: 'major_third',
+      },
     };
   }
 
