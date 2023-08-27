@@ -130,3 +130,5 @@ dist
 .pnp.*
 
 public
+src/scenes/TestScene.ts
+src/main.ts
