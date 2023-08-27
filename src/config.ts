@@ -29,6 +29,10 @@ export default class Config {
     return this.instance;
   }
 
+  public set enviroment(environment: Environment) {
+    this.environment = environment;
+  }
+
   public get enviroment(): Environment {
     return this.environment;
   }
