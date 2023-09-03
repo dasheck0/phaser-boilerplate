@@ -26,8 +26,6 @@ export class SingleImageItem extends UI {
     this.addToGroup([this.image]);
     this.repositionImage();
 
-    console.log('actual depth: ' + this.depth, this.name);
-
     if (Config.getInstance().enviroment.debug) {
       this.debugGraphics.clear();
       this.debugGraphics.strokeRect(this.position.x, this.position.y, this.dimension.width, this.dimension.height);

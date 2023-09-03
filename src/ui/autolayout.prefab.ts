@@ -72,11 +72,10 @@ export default class AutoLayout extends UI {
           };
         }
 
-        const prefab = PrefabStore.getInstance().instantiatePrefab<UI>(options.type, `${this.name}.${index}`, this.scene, options);
+        const name = options.name ?? `${this.name}.${index}`;
+        const prefab = PrefabStore.getInstance().instantiatePrefab<UI>(options.type, name, this.scene, options);
+
         prefab.setParent(this);
-
-        console.log('Parent', this.parent, this.depth, this.name);
-
         prefab.populateChildren();
 
         this.children.push(prefab);

@@ -8,6 +8,7 @@ export interface UIOptions {
   position: Position;
   anchor?: Vector2;
   group?: string;
+  name?: string;
   margin?: {
     top?: number;
     right?: number;
@@ -68,8 +69,6 @@ export abstract class UI {
       this.debugGraphics.strokeRect(this.position.x, this.position.y, this.dimension.width, this.dimension.height);
     }
 
-    console.log('this.layout', this.depth, this.name);
-
     this.children.forEach(child => child.layout(this));
   }
 
@@ -122,8 +121,6 @@ export abstract class UI {
         items.forEach(item => {
           const depth = parseFloat('1.' + '1'.repeat(this.depth));
           item.setDepth(group.depth * depth);
-
-          console.log('depth', group.depth * depth, depth, item.name);
 
           group.group.add(item);
         });

@@ -117,12 +117,14 @@
               {
                 "type": "ImageButton",
                 "key": "sample",
-                "maxHeight": 112
+                "maxHeight": 112,
+                "name": "switchToSecond"
               },
               {
                 "type": "ImageButton",
                 "key": "sample",
-                "maxHeight": 112
+                "maxHeight": 112,
+                "name": "switchToFirst"
               },
               {
                 "type": "ImageButton",

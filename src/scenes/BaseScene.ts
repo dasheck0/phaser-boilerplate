@@ -1,4 +1,5 @@
 import * as Phaser from 'phaser';
+import FiniteStateMachine from '../gamestates/GameState';
 import { PrefabStore } from '../prefabs/PrefabStore';
 import { Asset, ScenePluginAsset, SpriteSheetAsset } from '../types/asset.type';
 import { SceneConfiguration, SceneData } from '../types/scene.type';
@@ -21,10 +22,13 @@ export abstract class BaseScene extends Phaser.Scene {
   protected groups: GroupDefinition[] = [];
   protected scenes: SceneDefinition[] = [];
 
+  protected stateMachine: FiniteStateMachine;
+
   constructor(key: string) {
     super(key);
 
     this.configFile = '';
+    this.stateMachine = new FiniteStateMachine(this);
   }
 
   init(options: SceneData) {
@@ -44,6 +48,12 @@ export abstract class BaseScene extends Phaser.Scene {
     this.loadGroups();
     this.loadScenes();
     this.loadPrefabs().then(() => this.postCreate());
+  }
+
+  update(time: number, delta: number) {
+    super.update(time, delta);
+
+    this.stateMachine.update();
   }
 
   protected abstract postCreate(): void;

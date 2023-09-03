@@ -19,5 +19,6 @@ export * from './ui/text.prefab';
 export * from './ui/ui';
 export { RegisterPrefab };
 
-  import RegisterPrefab from './decorators/prefab.decorator';
+  export * from './gamestates/GameState';
 
+import RegisterPrefab from './decorators/prefab.decorator';
