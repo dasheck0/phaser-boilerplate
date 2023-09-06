@@ -10,77 +10,28 @@
     }
   ],
   "prefabs": {
-    "rows": {
-      "type": "AutoLayout",
+    "textButton": {
+      "type": "TextButton",
       "options": {
-        "direction": "vertical",
+        "key": "sample",
+        "text": "Hello World",
+        "maxHeight": 112,
+        "maxWidth": 112,
         "position": {
           "x": 0,
           "y": 0
         },
-        "group": "ui",
-        "width": {
-          "value": 1,
-          "relative": true
+        "anchor": {
+          "x": 0,
+          "y": 0
         },
-        "margin": {
-          "left": 32,
-          "top": 32
-        },
-        "height": {
-          "value": 400,
-          "relative": false
-        },
-        "children": [
-          {
-            "type": "Text",
-            "text": "Hello World",
-            "typo": "tiny"
-          },
-          {
-            "type": "Text",
-            "text": "Hello World",
-            "typo": "small"
-          },
-          {
-            "type": "Text",
-            "text": "Hello World",
-            "typo": "body"
-          },
-          {
-            "type": "Text",
-            "text": "Hello World",
-            "typo": "subheading"
-          },
-          {
-            "type": "Text",
-            "text": "Hello World",
-            "typo": "heading"
-          },
-          {
-            "type": "Text",
-            "text": "Hello World",
-            "typo": "display1"
-          },
-          {
-            "type": "Text",
-            "text": "Hello World",
-            "typo": "display2"
-          },
-          {
-            "type": "Text",
-            "text": "Hello World",
-            "typo": "display3"
-          },
-          {
-            "type": "Text",
-            "text": "Hello World",
-            "typo": "display4",
-            "fontColor": "#ff0000",
-            "strokeColor": "#000000",
-            "strokeWidth": 10
-          }
-        ]
+        "animation": "tint",
+        "textAlign": "center",
+        "vTextAlign": "center",
+        "textAnchor": {
+          "x": 0.5,
+          "y": 0.5
+        }
       }
     },
     "panel": {

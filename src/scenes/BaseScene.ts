@@ -1,6 +1,7 @@
 import * as Phaser from 'phaser';
 import FiniteStateMachine from '../gamestates/GameState';
 import { PrefabStore } from '../prefabs/PrefabStore';
+import { BasePrefab } from '../prefabs/base';
 import { Asset, ScenePluginAsset, SpriteSheetAsset } from '../types/asset.type';
 import { SceneConfiguration, SceneData } from '../types/scene.type';
 
@@ -47,7 +48,12 @@ export abstract class BaseScene extends Phaser.Scene {
   create() {
     this.loadGroups();
     this.loadScenes();
-    this.loadPrefabs().then(() => this.postCreate());
+    this.loadPrefabs().then(() => {
+      PrefabStore.getInstance()
+        .getPrefabs<BasePrefab>()
+        .forEach(prefab => prefab.initialize());
+      this.postCreate();
+    });
   }
 
   update(time: number, delta: number) {

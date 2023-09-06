@@ -48,6 +48,10 @@ export class PrefabStore {
     return prefab as T;
   }
 
+  public getPrefabs<T>(): T[] {
+    return Object.values(this.prefabs) as T[];
+  }
+
   // public async loadPredefinedPrefabs() {
   //   await this.loadPrefabs('../**/*.prefab.ts');
   // }

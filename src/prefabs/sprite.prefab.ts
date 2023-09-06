@@ -3,7 +3,7 @@ import RegisterPrefab from '../decorators/prefab.decorator';
 import { BaseScene } from '../scenes/BaseScene';
 import { Position, Vector2 } from '../types/math.type';
 import { calculatePosition } from '../utilities/position';
-import { BaseOptions } from './base';
+import { BaseOptions, BasePrefab } from './base';
 
 export interface SpriteOptions extends BaseOptions {
   key: string;
@@ -16,7 +16,7 @@ export interface SpriteOptions extends BaseOptions {
 }
 
 @RegisterPrefab('BaseSprite')
-export default class BaseSprite extends Phaser.Physics.Arcade.Sprite {
+export default class BaseSprite extends Phaser.Physics.Arcade.Sprite implements BasePrefab {
   constructor(public readonly name: string, public readonly scene: BaseScene, protected readonly options: SpriteOptions) {
     super(scene, options.position.x, options.position.y, options.key);
 
@@ -46,5 +46,8 @@ export default class BaseSprite extends Phaser.Physics.Arcade.Sprite {
     }
 
     this.scene.add.existing(this);
+  }
+
+  initialize(): void {
   }
 }

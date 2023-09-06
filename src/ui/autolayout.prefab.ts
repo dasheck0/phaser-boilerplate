@@ -19,6 +19,8 @@ export default class AutoLayout extends UI {
     super(name, scene, options);
   }
 
+  public shutdown(): void {}
+
   public override layout(parent?: UI): void {
     super.layout(parent);
 

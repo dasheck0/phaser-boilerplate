@@ -16,7 +16,9 @@ export * from './ui/image.prefab';
 export * from './ui/imageButton.prefab';
 export * from './ui/singleImageItem';
 export * from './ui/text.prefab';
+export * from './ui/textButton.prefab';
 export * from './ui/ui';
+
 export { RegisterPrefab };
 
   export * from './gamestates/GameState';

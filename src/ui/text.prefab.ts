@@ -3,7 +3,7 @@ import RegisterPrefab from '../decorators/prefab.decorator';
 import { BaseScene } from '../scenes/BaseScene';
 import { UI, UIOptions } from './ui';
 
-const textTypesArray = ['tiny', 'small', 'body', 'subheading', 'heading', 'display1', 'display2', 'display3', 'display4'] as const;
+export const textTypesArray = ['tiny', 'small', 'body', 'subheading', 'heading', 'display1', 'display2', 'display3', 'display4'] as const;
 export type TextType = (typeof textTypesArray)[number];
 
 export type Scale =
@@ -46,6 +46,8 @@ export default class TextPrefab extends UI {
   constructor(protected readonly name: string, protected readonly scene: BaseScene, protected readonly options: TextOptions) {
     super(name, scene, options);
   }
+
+  public shutdown(): void {}
 
   public override layout(parent?: UI): void {
     super.layout(parent);

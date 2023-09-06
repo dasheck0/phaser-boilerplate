@@ -1,4 +1,5 @@
 import { Config } from '../config';
+import { BasePrefab } from '../prefabs/base';
 import { BaseScene } from '../scenes/BaseScene';
 import { Dimension2, Position, Vector2 } from '../types/math.type';
 import { randomColor } from '../utilities/random';
@@ -34,7 +35,7 @@ export interface UIOptions {
   children?: UIOptions[];
 }
 
-export abstract class UI {
+export abstract class UI implements BasePrefab {
   public position: Vector2;
   public dimension: Dimension2;
   protected children: UI[] = [];
@@ -56,6 +57,8 @@ export abstract class UI {
     this.populateChildren();
     this.layout();
   }
+
+  abstract shutdown(): void;
 
   public layout(parent?: UI) {
     const offset = parent ? parent.position : { x: 0, y: 0 };
