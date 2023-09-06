@@ -1,0 +1,71 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "definitions": {
+        "Position": {
+            "additionalProperties": false,
+            "properties": {
+                "relative": {
+                    "type": "boolean"
+                },
+                "x": {
+                    "type": "number"
+                },
+                "y": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "x",
+                "y"
+            ],
+            "type": "object"
+        },
+        "Vector2": {
+            "additionalProperties": false,
+            "properties": {
+                "x": {
+                    "type": "number"
+                },
+                "y": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "x",
+                "y"
+            ],
+            "type": "object"
+        }
+    },
+    "properties": {
+        "alpha": {
+            "type": "number"
+        },
+        "anchor": {
+            "$ref": "#/definitions/Vector2"
+        },
+        "angle": {
+            "type": "number"
+        },
+        "group": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "position": {
+            "$ref": "#/definitions/Position"
+        },
+        "scale": {
+            "$ref": "#/definitions/Vector2"
+        }
+    },
+    "required": [
+        "group",
+        "key",
+        "position"
+    ],
+    "type": "object"
+}
+

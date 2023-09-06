@@ -4,7 +4,12 @@
   "title": "scene",
   "description": "A phaser scene that can be loaded by the phaser boilerplate",
   "type": "object",
-  "required": ["groups", "assets", "scenes", "prefabs"],
+  "required": [
+    "groups",
+    "assets",
+    "scenes",
+    "prefabs"
+  ],
   "properties": {
     "$schema": {
       "type": "string"
@@ -15,7 +20,11 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["name", "type", "url"],
+        "required": [
+          "name",
+          "type",
+          "url"
+        ],
         "default": {
           "type": "image",
           "url": ""
@@ -26,7 +35,14 @@
           },
           "type": {
             "type": "string",
-            "enum": ["image", "plugin", "sceneplugin", "audio", "spritesheet", "script"]
+            "enum": [
+              "image",
+              "plugin",
+              "sceneplugin",
+              "audio",
+              "spritesheet",
+              "script"
+            ]
           },
           "url": {
             "type": "string"
@@ -47,23 +63,33 @@
         "if": {
           "properties": {
             "type": {
-              "enum": ["sceneplugin"]
+              "enum": [
+                "sceneplugin"
+              ]
             }
           }
         },
         "then": {
-          "required": ["sceneKey"]
+          "required": [
+            "sceneKey"
+          ]
         },
         "else": {
           "if": {
             "properties": {
               "type": {
-                "enum": ["spritesheet"]
+                "enum": [
+                  "spritesheet"
+                ]
               }
             }
           },
           "then": {
-            "required": ["frameWidth", "frameHeight", "frames"]
+            "required": [
+              "frameWidth",
+              "frameHeight",
+              "frames"
+            ]
           }
         }
       }
@@ -94,10 +120,22 @@
       "additionalProperties": {
         "oneOf": [
           {
-            "$ref": "basesprite.schema.json"
+            "$ref": "./prefabs/AutoLayoutOptions.schema.json"
           },
           {
-            "$ref": "baseaudio.schema.json"
+            "$ref": "./prefabs/ImageButtonOptions.schema.json"
+          },
+          {
+            "$ref": "./prefabs/ImageOptions.schema.json"
+          },
+          {
+            "$ref": "./prefabs/SpriteOptions.schema.json"
+          },
+          {
+            "$ref": "./prefabs/TextButtonOptions.schema.json"
+          },
+          {
+            "$ref": "./prefabs/TextOptions.schema.json"
           }
         ]
       }

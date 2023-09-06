@@ -1,0 +1,318 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "definitions": {
+        "Position": {
+            "additionalProperties": false,
+            "properties": {
+                "relative": {
+                    "title": "relative",
+                    "type": "boolean"
+                },
+                "x": {
+                    "title": "x",
+                    "type": "number"
+                },
+                "y": {
+                    "title": "y",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "x",
+                "y"
+            ],
+            "title": "Position",
+            "type": "object"
+        },
+        "UIOptions": {
+            "additionalProperties": false,
+            "properties": {
+                "anchor": {
+                    "$ref": "#/definitions/Vector2",
+                    "title": "anchor"
+                },
+                "children": {
+                    "items": {
+                        "$ref": "#/definitions/UIOptions"
+                    },
+                    "title": "children",
+                    "type": "array"
+                },
+                "group": {
+                    "title": "group",
+                    "type": "string"
+                },
+                "height": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ignoreMargin": {
+                            "title": "ignoreMargin",
+                            "type": "boolean"
+                        },
+                        "relative": {
+                            "title": "relative",
+                            "type": "boolean"
+                        },
+                        "value": {
+                            "title": "value",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "title": "height",
+                    "type": "object"
+                },
+                "margin": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "bottom": {
+                            "title": "bottom",
+                            "type": "number"
+                        },
+                        "left": {
+                            "title": "left",
+                            "type": "number"
+                        },
+                        "right": {
+                            "title": "right",
+                            "type": "number"
+                        },
+                        "top": {
+                            "title": "top",
+                            "type": "number"
+                        }
+                    },
+                    "title": "margin",
+                    "type": "object"
+                },
+                "name": {
+                    "title": "name",
+                    "type": "string"
+                },
+                "padding": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "bottom": {
+                            "title": "bottom",
+                            "type": "number"
+                        },
+                        "left": {
+                            "title": "left",
+                            "type": "number"
+                        },
+                        "right": {
+                            "title": "right",
+                            "type": "number"
+                        },
+                        "top": {
+                            "title": "top",
+                            "type": "number"
+                        }
+                    },
+                    "title": "padding",
+                    "type": "object"
+                },
+                "position": {
+                    "$ref": "#/definitions/Position",
+                    "title": "position"
+                },
+                "type": {
+                    "title": "type",
+                    "type": "string"
+                },
+                "width": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "ignoreMargin": {
+                            "title": "ignoreMargin",
+                            "type": "boolean"
+                        },
+                        "relative": {
+                            "title": "relative",
+                            "type": "boolean"
+                        },
+                        "value": {
+                            "title": "value",
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "value"
+                    ],
+                    "title": "width",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "position",
+                "type"
+            ],
+            "title": "UIOptions",
+            "type": "object"
+        },
+        "Vector2": {
+            "additionalProperties": false,
+            "properties": {
+                "x": {
+                    "title": "x",
+                    "type": "number"
+                },
+                "y": {
+                    "title": "y",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "x",
+                "y"
+            ],
+            "title": "Vector2",
+            "type": "object"
+        }
+    },
+    "properties": {
+        "anchor": {
+            "$ref": "#/definitions/Vector2",
+            "title": "anchor"
+        },
+        "backgroundAlpha": {
+            "title": "backgroundAlpha",
+            "type": "number"
+        },
+        "backgroundColor": {
+            "title": "backgroundColor",
+            "type": "string"
+        },
+        "children": {
+            "items": {
+                "$ref": "#/definitions/UIOptions"
+            },
+            "title": "children",
+            "type": "array"
+        },
+        "direction": {
+            "enum": [
+                "horizontal",
+                "vertical"
+            ],
+            "title": "direction",
+            "type": "string"
+        },
+        "group": {
+            "title": "group",
+            "type": "string"
+        },
+        "height": {
+            "additionalProperties": false,
+            "properties": {
+                "ignoreMargin": {
+                    "title": "ignoreMargin",
+                    "type": "boolean"
+                },
+                "relative": {
+                    "title": "relative",
+                    "type": "boolean"
+                },
+                "value": {
+                    "title": "value",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "height",
+            "type": "object"
+        },
+        "margin": {
+            "additionalProperties": false,
+            "properties": {
+                "bottom": {
+                    "title": "bottom",
+                    "type": "number"
+                },
+                "left": {
+                    "title": "left",
+                    "type": "number"
+                },
+                "right": {
+                    "title": "right",
+                    "type": "number"
+                },
+                "top": {
+                    "title": "top",
+                    "type": "number"
+                }
+            },
+            "title": "margin",
+            "type": "object"
+        },
+        "name": {
+            "title": "name",
+            "type": "string"
+        },
+        "padding": {
+            "additionalProperties": false,
+            "properties": {
+                "bottom": {
+                    "title": "bottom",
+                    "type": "number"
+                },
+                "left": {
+                    "title": "left",
+                    "type": "number"
+                },
+                "right": {
+                    "title": "right",
+                    "type": "number"
+                },
+                "top": {
+                    "title": "top",
+                    "type": "number"
+                }
+            },
+            "title": "padding",
+            "type": "object"
+        },
+        "position": {
+            "$ref": "#/definitions/Position",
+            "title": "position"
+        },
+        "type": {
+            "title": "type",
+            "type": "string"
+        },
+        "width": {
+            "additionalProperties": false,
+            "properties": {
+                "ignoreMargin": {
+                    "title": "ignoreMargin",
+                    "type": "boolean"
+                },
+                "relative": {
+                    "title": "relative",
+                    "type": "boolean"
+                },
+                "value": {
+                    "title": "value",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "title": "width",
+            "type": "object"
+        }
+    },
+    "required": [
+        "direction",
+        "position",
+        "type"
+    ],
+    "type": "object"
+}
+
