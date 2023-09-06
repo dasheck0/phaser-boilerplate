@@ -9,7 +9,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "schema:generate": "node ./scripts/generateSchema.js",
-    "release": "git checkout master && git merge develop && git push origin master --tags && git checkout develop"
+    "release": "git checkout master && git merge develop && git push origin master --tags && git checkout develop && git push origin develop"
   },
   "exports": {
     ".": {
