@@ -1,11 +1,10 @@
 import { Config } from '../config';
-import { BasePrefab } from '../prefabs/base';
+import { BaseOptions, BasePrefab } from '../prefabs/base';
 import { BaseScene } from '../scenes/BaseScene';
 import { Dimension2, Position, Vector2 } from '../types/math.type';
 import { randomColor } from '../utilities/random';
 
-export interface UIOptions {
-  type: string;
+export interface UIOptions extends BaseOptions {
   position: Position;
   anchor?: Vector2;
   group?: string;

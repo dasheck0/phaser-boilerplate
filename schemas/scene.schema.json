@@ -114,30 +114,31 @@
     },
     "prefabs": {
       "type": "object",
-      "propertyNames": {
-        "type": "string"
-      },
       "additionalProperties": {
-        "oneOf": [
-          {
-            "$ref": "./prefabs/AutoLayoutOptions.schema.json"
-          },
-          {
-            "$ref": "./prefabs/ImageButtonOptions.schema.json"
-          },
-          {
-            "$ref": "./prefabs/ImageOptions.schema.json"
-          },
-          {
-            "$ref": "./prefabs/SpriteOptions.schema.json"
-          },
-          {
-            "$ref": "./prefabs/TextButtonOptions.schema.json"
-          },
-          {
-            "$ref": "./prefabs/TextOptions.schema.json"
+        "properties": {
+          "options": {
+            "oneOf": [
+              {
+                "$ref": "./prefabs/AutoLayoutOptions.schema.json"
+              },
+              {
+                "$ref": "./prefabs/ImageButtonOptions.schema.json"
+              },
+              {
+                "$ref": "./prefabs/ImageOptions.schema.json"
+              },
+              {
+                "$ref": "./prefabs/SpriteOptions.schema.json"
+              },
+              {
+                "$ref": "./prefabs/TextButtonOptions.schema.json"
+              },
+              {
+                "$ref": "./prefabs/TextOptions.schema.json"
+              }
+            ]
           }
-        ]
+        }
       }
     }
   },

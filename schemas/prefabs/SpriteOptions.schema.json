@@ -1,71 +1,79 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "additionalProperties": false,
-    "definitions": {
-        "Position": {
-            "additionalProperties": false,
-            "properties": {
-                "relative": {
-                    "type": "boolean"
-                },
-                "x": {
-                    "type": "number"
-                },
-                "y": {
-                    "type": "number"
-                }
-            },
-            "required": [
-                "x",
-                "y"
-            ],
-            "type": "object"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "Position": {
+      "additionalProperties": false,
+      "properties": {
+        "relative": {
+          "title": "relative",
+          "type": "boolean"
         },
-        "Vector2": {
-            "additionalProperties": false,
-            "properties": {
-                "x": {
-                    "type": "number"
-                },
-                "y": {
-                    "type": "number"
-                }
-            },
-            "required": [
-                "x",
-                "y"
-            ],
-            "type": "object"
+        "x": {
+          "title": "x",
+          "type": "number"
+        },
+        "y": {
+          "title": "y",
+          "type": "number"
         }
+      },
+      "required": ["x", "y"],
+      "title": "Position",
+      "type": "object"
     },
-    "properties": {
-        "alpha": {
-            "type": "number"
+    "Vector2": {
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "title": "x",
+          "type": "number"
         },
-        "anchor": {
-            "$ref": "#/definitions/Vector2"
-        },
-        "angle": {
-            "type": "number"
-        },
-        "group": {
-            "type": "string"
-        },
-        "key": {
-            "type": "string"
-        },
-        "position": {
-            "$ref": "#/definitions/Position"
-        },
-        "scale": {
-            "$ref": "#/definitions/Vector2"
+        "y": {
+          "title": "y",
+          "type": "number"
         }
+      },
+      "required": ["x", "y"],
+      "title": "Vector2",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "alpha": {
+      "title": "alpha",
+      "type": "number"
     },
-    "required": [
-        "group",
-        "key",
-        "position"
-    ],
-    "type": "object"
+    "anchor": {
+      "$ref": "#/definitions/Vector2",
+      "title": "anchor"
+    },
+    "angle": {
+      "title": "angle",
+      "type": "number"
+    },
+    "group": {
+      "title": "group",
+      "type": "string"
+    },
+    "key": {
+      "title": "key",
+      "type": "string"
+    },
+    "position": {
+      "$ref": "#/definitions/Position",
+      "title": "position"
+    },
+    "scale": {
+      "$ref": "#/definitions/Vector2",
+      "title": "scale"
+    },
+    "type": {
+      "title": "type",
+      "type": "string",
+      "enum": ["Sprite"]
+    }
+  },
+  "required": ["group", "key", "position", "type"],
+  "type": "object"
 }
-

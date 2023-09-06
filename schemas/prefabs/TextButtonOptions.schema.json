@@ -1,492 +1,494 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "additionalProperties": false,
-    "definitions": {
-        "Position": {
-            "additionalProperties": false,
-            "properties": {
-                "relative": {
-                    "title": "relative",
-                    "type": "boolean"
-                },
-                "x": {
-                    "title": "x",
-                    "type": "number"
-                },
-                "y": {
-                    "title": "y",
-                    "type": "number"
-                }
-            },
-            "required": [
-                "x",
-                "y"
-            ],
-            "title": "Position",
-            "type": "object"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {
+    "Position": {
+      "additionalProperties": false,
+      "properties": {
+        "relative": {
+          "title": "relative",
+          "type": "boolean"
         },
-        "Scale": {
-            "enum": [
-                "augmented_fourth",
-                "golden_ratio",
-                "major_second",
-                "major_third",
-                "minor_second",
-                "minor_third",
-                "perfect_fifth",
-                "perfect_fourth"
-            ],
-            "title": "Scale",
-            "type": "string"
+        "x": {
+          "title": "x",
+          "type": "number"
         },
-        "TextType": {
-            "enum": [
-                "body",
-                "display1",
-                "display2",
-                "display3",
-                "display4",
-                "heading",
-                "small",
-                "subheading",
-                "tiny"
-            ],
-            "title": "TextType",
-            "type": "string"
-        },
-        "UIOptions": {
-            "additionalProperties": false,
-            "properties": {
-                "anchor": {
-                    "$ref": "#/definitions/Vector2",
-                    "title": "anchor"
-                },
-                "children": {
-                    "items": {
-                        "$ref": "#/definitions/UIOptions"
-                    },
-                    "title": "children",
-                    "type": "array"
-                },
-                "group": {
-                    "title": "group",
-                    "type": "string"
-                },
-                "height": {
-                    "additionalProperties": false,
-                    "properties": {
-                        "ignoreMargin": {
-                            "title": "ignoreMargin",
-                            "type": "boolean"
-                        },
-                        "relative": {
-                            "title": "relative",
-                            "type": "boolean"
-                        },
-                        "value": {
-                            "title": "value",
-                            "type": "number"
-                        }
-                    },
-                    "required": [
-                        "value"
-                    ],
-                    "title": "height",
-                    "type": "object"
-                },
-                "margin": {
-                    "additionalProperties": false,
-                    "properties": {
-                        "bottom": {
-                            "title": "bottom",
-                            "type": "number"
-                        },
-                        "left": {
-                            "title": "left",
-                            "type": "number"
-                        },
-                        "right": {
-                            "title": "right",
-                            "type": "number"
-                        },
-                        "top": {
-                            "title": "top",
-                            "type": "number"
-                        }
-                    },
-                    "title": "margin",
-                    "type": "object"
-                },
-                "name": {
-                    "title": "name",
-                    "type": "string"
-                },
-                "padding": {
-                    "additionalProperties": false,
-                    "properties": {
-                        "bottom": {
-                            "title": "bottom",
-                            "type": "number"
-                        },
-                        "left": {
-                            "title": "left",
-                            "type": "number"
-                        },
-                        "right": {
-                            "title": "right",
-                            "type": "number"
-                        },
-                        "top": {
-                            "title": "top",
-                            "type": "number"
-                        }
-                    },
-                    "title": "padding",
-                    "type": "object"
-                },
-                "position": {
-                    "$ref": "#/definitions/Position",
-                    "title": "position"
-                },
-                "type": {
-                    "title": "type",
-                    "type": "string"
-                },
-                "width": {
-                    "additionalProperties": false,
-                    "properties": {
-                        "ignoreMargin": {
-                            "title": "ignoreMargin",
-                            "type": "boolean"
-                        },
-                        "relative": {
-                            "title": "relative",
-                            "type": "boolean"
-                        },
-                        "value": {
-                            "title": "value",
-                            "type": "number"
-                        }
-                    },
-                    "required": [
-                        "value"
-                    ],
-                    "title": "width",
-                    "type": "object"
-                }
-            },
-            "required": [
-                "position",
-                "type"
-            ],
-            "title": "UIOptions",
-            "type": "object"
-        },
-        "Vector2": {
-            "additionalProperties": false,
-            "properties": {
-                "x": {
-                    "title": "x",
-                    "type": "number"
-                },
-                "y": {
-                    "title": "y",
-                    "type": "number"
-                }
-            },
-            "required": [
-                "x",
-                "y"
-            ],
-            "title": "Vector2",
-            "type": "object"
+        "y": {
+          "title": "y",
+          "type": "number"
         }
+      },
+      "required": [
+        "x",
+        "y"
+      ],
+      "title": "Position",
+      "type": "object"
     },
-    "properties": {
-        "alignSelf": {
-            "enum": [
-                "center",
-                "end",
-                "start"
-            ],
-            "title": "alignSelf",
-            "type": "string"
-        },
+    "Scale": {
+      "enum": [
+        "augmented_fourth",
+        "golden_ratio",
+        "major_second",
+        "major_third",
+        "minor_second",
+        "minor_third",
+        "perfect_fifth",
+        "perfect_fourth"
+      ],
+      "title": "Scale",
+      "type": "string"
+    },
+    "TextType": {
+      "enum": [
+        "body",
+        "display1",
+        "display2",
+        "display3",
+        "display4",
+        "heading",
+        "small",
+        "subheading",
+        "tiny"
+      ],
+      "title": "TextType",
+      "type": "string"
+    },
+    "UIOptions": {
+      "additionalProperties": false,
+      "properties": {
         "anchor": {
-            "$ref": "#/definitions/Vector2",
-            "title": "anchor"
-        },
-        "animation": {
-            "enum": [
-                "none",
-                "pinch",
-                "tint"
-            ],
-            "title": "animation",
-            "type": "string"
-        },
-        "animationDuration": {
-            "title": "animationDuration",
-            "type": "number"
-        },
-        "baseFontSize": {
-            "title": "baseFontSize",
-            "type": "number"
+          "$ref": "#/definitions/Vector2",
+          "title": "anchor"
         },
         "children": {
-            "items": {
-                "$ref": "#/definitions/UIOptions"
-            },
-            "title": "children",
-            "type": "array"
-        },
-        "fontColor": {
-            "title": "fontColor",
-            "type": "string"
-        },
-        "fontFamily": {
-            "title": "fontFamily",
-            "type": "string"
+          "items": {
+            "$ref": "#/definitions/UIOptions"
+          },
+          "title": "children",
+          "type": "array"
         },
         "group": {
-            "title": "group",
-            "type": "string"
+          "title": "group",
+          "type": "string"
         },
         "height": {
-            "additionalProperties": false,
-            "properties": {
-                "ignoreMargin": {
-                    "title": "ignoreMargin",
-                    "type": "boolean"
-                },
-                "relative": {
-                    "title": "relative",
-                    "type": "boolean"
-                },
-                "value": {
-                    "title": "value",
-                    "type": "number"
-                }
+          "additionalProperties": false,
+          "properties": {
+            "ignoreMargin": {
+              "title": "ignoreMargin",
+              "type": "boolean"
             },
-            "required": [
-                "value"
-            ],
-            "title": "height",
-            "type": "object"
-        },
-        "imageAnchor": {
-            "$ref": "#/definitions/Vector2",
-            "title": "imageAnchor"
-        },
-        "key": {
-            "title": "key",
-            "type": "string"
+            "relative": {
+              "title": "relative",
+              "type": "boolean"
+            },
+            "value": {
+              "title": "value",
+              "type": "number"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "title": "height",
+          "type": "object"
         },
         "margin": {
-            "additionalProperties": false,
-            "properties": {
-                "bottom": {
-                    "title": "bottom",
-                    "type": "number"
-                },
-                "left": {
-                    "title": "left",
-                    "type": "number"
-                },
-                "right": {
-                    "title": "right",
-                    "type": "number"
-                },
-                "top": {
-                    "title": "top",
-                    "type": "number"
-                }
+          "additionalProperties": false,
+          "properties": {
+            "bottom": {
+              "title": "bottom",
+              "type": "number"
             },
-            "title": "margin",
-            "type": "object"
-        },
-        "maxHeight": {
-            "title": "maxHeight",
-            "type": "number"
-        },
-        "maxWidth": {
-            "title": "maxWidth",
-            "type": "number"
+            "left": {
+              "title": "left",
+              "type": "number"
+            },
+            "right": {
+              "title": "right",
+              "type": "number"
+            },
+            "top": {
+              "title": "top",
+              "type": "number"
+            }
+          },
+          "title": "margin",
+          "type": "object"
         },
         "name": {
-            "title": "name",
-            "type": "string"
+          "title": "name",
+          "type": "string"
         },
         "padding": {
-            "additionalProperties": false,
-            "properties": {
-                "bottom": {
-                    "title": "bottom",
-                    "type": "number"
-                },
-                "left": {
-                    "title": "left",
-                    "type": "number"
-                },
-                "right": {
-                    "title": "right",
-                    "type": "number"
-                },
-                "top": {
-                    "title": "top",
-                    "type": "number"
-                }
+          "additionalProperties": false,
+          "properties": {
+            "bottom": {
+              "title": "bottom",
+              "type": "number"
             },
-            "title": "padding",
-            "type": "object"
+            "left": {
+              "title": "left",
+              "type": "number"
+            },
+            "right": {
+              "title": "right",
+              "type": "number"
+            },
+            "top": {
+              "title": "top",
+              "type": "number"
+            }
+          },
+          "title": "padding",
+          "type": "object"
         },
         "position": {
-            "$ref": "#/definitions/Position",
-            "title": "position"
-        },
-        "scale": {
-            "$ref": "#/definitions/Scale",
-            "title": "scale"
-        },
-        "shadow": {
-            "additionalProperties": false,
-            "properties": {
-                "blur": {
-                    "title": "blur",
-                    "type": "number"
-                },
-                "color": {
-                    "title": "color",
-                    "type": "string"
-                },
-                "enableFill": {
-                    "title": "enableFill",
-                    "type": "boolean"
-                },
-                "enableStroke": {
-                    "title": "enableStroke",
-                    "type": "boolean"
-                },
-                "x": {
-                    "title": "x",
-                    "type": "number"
-                },
-                "y": {
-                    "title": "y",
-                    "type": "number"
-                }
-            },
-            "required": [
-                "blur",
-                "color",
-                "enableFill",
-                "enableStroke",
-                "x",
-                "y"
-            ],
-            "title": "shadow",
-            "type": "object"
-        },
-        "strokeColor": {
-            "title": "strokeColor",
-            "type": "string"
-        },
-        "strokeWidth": {
-            "title": "strokeWidth",
-            "type": "number"
-        },
-        "text": {
-            "title": "text",
-            "type": "string"
-        },
-        "textAlign": {
-            "enum": [
-                "center",
-                "left",
-                "right"
-            ],
-            "title": "textAlign",
-            "type": "string"
-        },
-        "textAnchor": {
-            "$ref": "#/definitions/Vector2",
-            "title": "textAnchor"
+          "$ref": "#/definitions/Position",
+          "title": "position"
         },
         "type": {
-            "title": "type",
-            "type": "string"
-        },
-        "typo": {
-            "$ref": "#/definitions/TextType",
-            "title": "typo"
-        },
-        "vAlignSelf": {
-            "enum": [
-                "center",
-                "end",
-                "start"
-            ],
-            "title": "vAlignSelf",
-            "type": "string"
-        },
-        "vTextAlign": {
-            "enum": [
-                "bottom",
-                "center",
-                "top"
-            ],
-            "title": "vTextAlign",
-            "type": "string"
+          "title": "type",
+          "type": "string"
         },
         "width": {
-            "additionalProperties": false,
-            "properties": {
-                "ignoreMargin": {
-                    "title": "ignoreMargin",
-                    "type": "boolean"
-                },
-                "relative": {
-                    "title": "relative",
-                    "type": "boolean"
-                },
-                "value": {
-                    "title": "value",
-                    "type": "number"
-                }
+          "additionalProperties": false,
+          "properties": {
+            "ignoreMargin": {
+              "title": "ignoreMargin",
+              "type": "boolean"
             },
-            "required": [
-                "value"
-            ],
-            "title": "width",
-            "type": "object"
-        },
-        "wordwrap": {
-            "additionalProperties": false,
-            "properties": {
-                "useAdvancedWrap": {
-                    "title": "useAdvancedWrap",
-                    "type": "boolean"
-                },
-                "width": {
-                    "title": "width",
-                    "type": "number"
-                }
+            "relative": {
+              "title": "relative",
+              "type": "boolean"
             },
-            "required": [
-                "useAdvancedWrap",
-                "width"
-            ],
-            "title": "wordwrap",
-            "type": "object"
+            "value": {
+              "title": "value",
+              "type": "number"
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "title": "width",
+          "type": "object"
         }
-    },
-    "required": [
-        "animation",
-        "key",
+      },
+      "required": [
         "position",
-        "text",
         "type"
-    ],
-    "type": "object"
+      ],
+      "title": "UIOptions",
+      "type": "object"
+    },
+    "Vector2": {
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "title": "x",
+          "type": "number"
+        },
+        "y": {
+          "title": "y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ],
+      "title": "Vector2",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "alignSelf": {
+      "enum": [
+        "center",
+        "end",
+        "start"
+      ],
+      "title": "alignSelf",
+      "type": "string"
+    },
+    "anchor": {
+      "$ref": "#/definitions/Vector2",
+      "title": "anchor"
+    },
+    "animation": {
+      "enum": [
+        "none",
+        "pinch",
+        "tint"
+      ],
+      "title": "animation",
+      "type": "string"
+    },
+    "animationDuration": {
+      "title": "animationDuration",
+      "type": "number"
+    },
+    "baseFontSize": {
+      "title": "baseFontSize",
+      "type": "number"
+    },
+    "children": {
+      "items": {
+        "$ref": "#/definitions/UIOptions"
+      },
+      "title": "children",
+      "type": "array"
+    },
+    "fontColor": {
+      "title": "fontColor",
+      "type": "string"
+    },
+    "fontFamily": {
+      "title": "fontFamily",
+      "type": "string"
+    },
+    "group": {
+      "title": "group",
+      "type": "string"
+    },
+    "height": {
+      "additionalProperties": false,
+      "properties": {
+        "ignoreMargin": {
+          "title": "ignoreMargin",
+          "type": "boolean"
+        },
+        "relative": {
+          "title": "relative",
+          "type": "boolean"
+        },
+        "value": {
+          "title": "value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "height",
+      "type": "object"
+    },
+    "imageAnchor": {
+      "$ref": "#/definitions/Vector2",
+      "title": "imageAnchor"
+    },
+    "key": {
+      "title": "key",
+      "type": "string"
+    },
+    "margin": {
+      "additionalProperties": false,
+      "properties": {
+        "bottom": {
+          "title": "bottom",
+          "type": "number"
+        },
+        "left": {
+          "title": "left",
+          "type": "number"
+        },
+        "right": {
+          "title": "right",
+          "type": "number"
+        },
+        "top": {
+          "title": "top",
+          "type": "number"
+        }
+      },
+      "title": "margin",
+      "type": "object"
+    },
+    "maxHeight": {
+      "title": "maxHeight",
+      "type": "number"
+    },
+    "maxWidth": {
+      "title": "maxWidth",
+      "type": "number"
+    },
+    "name": {
+      "title": "name",
+      "type": "string"
+    },
+    "padding": {
+      "additionalProperties": false,
+      "properties": {
+        "bottom": {
+          "title": "bottom",
+          "type": "number"
+        },
+        "left": {
+          "title": "left",
+          "type": "number"
+        },
+        "right": {
+          "title": "right",
+          "type": "number"
+        },
+        "top": {
+          "title": "top",
+          "type": "number"
+        }
+      },
+      "title": "padding",
+      "type": "object"
+    },
+    "position": {
+      "$ref": "#/definitions/Position",
+      "title": "position"
+    },
+    "scale": {
+      "$ref": "#/definitions/Scale",
+      "title": "scale"
+    },
+    "shadow": {
+      "additionalProperties": false,
+      "properties": {
+        "blur": {
+          "title": "blur",
+          "type": "number"
+        },
+        "color": {
+          "title": "color",
+          "type": "string"
+        },
+        "enableFill": {
+          "title": "enableFill",
+          "type": "boolean"
+        },
+        "enableStroke": {
+          "title": "enableStroke",
+          "type": "boolean"
+        },
+        "x": {
+          "title": "x",
+          "type": "number"
+        },
+        "y": {
+          "title": "y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "blur",
+        "color",
+        "enableFill",
+        "enableStroke",
+        "x",
+        "y"
+      ],
+      "title": "shadow",
+      "type": "object"
+    },
+    "strokeColor": {
+      "title": "strokeColor",
+      "type": "string"
+    },
+    "strokeWidth": {
+      "title": "strokeWidth",
+      "type": "number"
+    },
+    "text": {
+      "title": "text",
+      "type": "string"
+    },
+    "textAlign": {
+      "enum": [
+        "center",
+        "left",
+        "right"
+      ],
+      "title": "textAlign",
+      "type": "string"
+    },
+    "textAnchor": {
+      "$ref": "#/definitions/Vector2",
+      "title": "textAnchor"
+    },
+    "type": {
+      "title": "type",
+      "type": "string",
+      "enum": [
+        "TextButton"
+      ]
+    },
+    "typo": {
+      "$ref": "#/definitions/TextType",
+      "title": "typo"
+    },
+    "vAlignSelf": {
+      "enum": [
+        "center",
+        "end",
+        "start"
+      ],
+      "title": "vAlignSelf",
+      "type": "string"
+    },
+    "vTextAlign": {
+      "enum": [
+        "bottom",
+        "center",
+        "top"
+      ],
+      "title": "vTextAlign",
+      "type": "string"
+    },
+    "width": {
+      "additionalProperties": false,
+      "properties": {
+        "ignoreMargin": {
+          "title": "ignoreMargin",
+          "type": "boolean"
+        },
+        "relative": {
+          "title": "relative",
+          "type": "boolean"
+        },
+        "value": {
+          "title": "value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "width",
+      "type": "object"
+    },
+    "wordwrap": {
+      "additionalProperties": false,
+      "properties": {
+        "useAdvancedWrap": {
+          "title": "useAdvancedWrap",
+          "type": "boolean"
+        },
+        "width": {
+          "title": "width",
+          "type": "number"
+        }
+      },
+      "required": [
+        "useAdvancedWrap",
+        "width"
+      ],
+      "title": "wordwrap",
+      "type": "object"
+    }
+  },
+  "required": [
+    "animation",
+    "key",
+    "position",
+    "text",
+    "type"
+  ],
+  "type": "object"
 }
-

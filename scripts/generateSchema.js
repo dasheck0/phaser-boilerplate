@@ -26,10 +26,14 @@ exec(
       process.exit(1);
     }
 
+    const prefabSchema = JSON.parse(fs.readFileSync(`${schemaPath}/${JSONSchemaFileName}`, 'utf8'));
+    prefabSchema.properties.type.enum = [interfaceName.replace('Options', '')];
+    fs.writeFileSync(`${schemaPath}/${JSONSchemaFileName}`, JSON.stringify(prefabSchema, null, 2));
+
     const sceneSchema = JSON.parse(fs.readFileSync(`${schemaPath}/../scene.schema.json`, 'utf8'));
     const allSchemas = fs.readdirSync(schemaPath).filter(file => file.endsWith('.json'));
 
-    sceneSchema.properties.prefabs.additionalProperties.oneOf = allSchemas.map(schema => ({
+    sceneSchema.properties.prefabs.additionalProperties.properties.options.oneOf = allSchemas.map(schema => ({
       $ref: `./prefabs/${schema}`,
     }));
 

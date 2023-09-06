@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/dasheck0/phaser-boilerplate/develop/schemas/scene.schema.json",
+  "$schema": "../../../schemas/scene.schema.json",
   "scenes": [],
   "groups": ["background", "ui", "superui"],
   "assets": [
@@ -10,9 +10,20 @@
     }
   ],
   "prefabs": {
+    "sprite": {
+      "options": {
+        
+        "type": "TextButton",
+        "wordwrap": {
+          "useAdvancedWrap": false,
+          "width": 120
+        }
+      }
+    },
     "textButton": {
       "type": "TextButton",
       "options": {
+        "type": "",
         "key": "sample",
         "text": "Hello World",
         "maxHeight": 112,
@@ -35,8 +46,8 @@
       }
     },
     "panel": {
-      "type": "AutoLayout",
       "options": {
+        "type": "AutoLayout",
         "direction": "vertical",
         "group": "ui",
         "width": {

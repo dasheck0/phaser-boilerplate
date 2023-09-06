@@ -1,4 +1,6 @@
-export interface BaseOptions {}
+export interface BaseOptions {
+  type: string;
+}
 
 export interface BasePrefab {
   initialize(): void;

@@ -40,7 +40,7 @@ export interface TextOptions extends UIOptions {
 }
 
 @RegisterPrefab('Text')
-export default class TextPrefab extends UI {
+export default class Text extends UI {
   protected text?: Phaser.GameObjects.Text;
 
   constructor(protected readonly name: string, protected readonly scene: BaseScene, protected readonly options: TextOptions) {

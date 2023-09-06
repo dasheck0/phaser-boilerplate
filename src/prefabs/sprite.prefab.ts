@@ -16,7 +16,7 @@ export interface SpriteOptions extends BaseOptions {
 }
 
 @RegisterPrefab('BaseSprite')
-export default class BaseSprite extends Phaser.Physics.Arcade.Sprite implements BasePrefab {
+export default class Sprite extends Phaser.Physics.Arcade.Sprite implements BasePrefab {
   constructor(public readonly name: string, public readonly scene: BaseScene, protected readonly options: SpriteOptions) {
     super(scene, options.position.x, options.position.y, options.key);
 
