@@ -1,6 +1,6 @@
 {
   "name": "@dasheck0/phaser-boilerplate",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "private": false,
   "description": "Just a boilerplate library for phaser 3 game development.",
   "scripts": {
