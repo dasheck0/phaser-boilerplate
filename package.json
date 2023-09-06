@@ -8,7 +8,8 @@
     "prebuild": "rm -rf dist",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "schema:generate": "node ./scripts/generateSchema.js"
+    "schema:generate": "node ./scripts/generateSchema.js",
+    "release": "git checkout master && git merge develop && git push origin master --tags && git checkout develop"
   },
   "exports": {
     ".": {
