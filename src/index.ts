@@ -17,5 +17,26 @@ export * from './types/prefab.type';
 export * from './types/scene.type';
 export * from './ui/singleImageItem';
 export * from './ui/ui';
-export { AutoLayout, AutoLayoutNs, FiniteStateMachine, GameStateNs, Image, ImageButton, ImageButtonNs, ImageNs, RegisterPrefab, Sprite, SpriteNs, Text, TextButton, TextBuuttonNs, TextNs };
+export * from './utilities/position';
+export * from './utilities/random';
+export * from './utilities/transformation';
+export * from './utilities/validation';
+
+export {
+  AutoLayout,
+  AutoLayoutNs,
+  FiniteStateMachine,
+  GameStateNs,
+  Image,
+  ImageButton,
+  ImageButtonNs,
+  ImageNs,
+  RegisterPrefab,
+  Sprite,
+  SpriteNs,
+  Text,
+  TextButton,
+  TextBuuttonNs,
+  TextNs
+};
 

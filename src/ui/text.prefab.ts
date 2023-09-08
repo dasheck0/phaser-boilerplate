@@ -108,4 +108,12 @@ export default class Text extends UI {
 
     return baseFontSize * scaleMap[scale] ** (typeIndex - 2);
   }
+
+  public setText(text: string) {
+    this.text?.setText(text);
+  }
+
+  public clear(): void {
+    this.setText('');
+  }
 }
