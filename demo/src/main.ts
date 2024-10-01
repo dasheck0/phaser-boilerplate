@@ -5,7 +5,7 @@ import environment from './config.json';
 import TestScene from './scenes/TestScene';
 
 (async () => {
-  Config.getInstance().environment = environment;
+  Config.getInstance().enviroment = environment;
 
   const modules = await import.meta.glob('./**/*.prefab.ts');
   await PrefabStore.getInstance().loadPrefabs(modules);

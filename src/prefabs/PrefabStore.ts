@@ -28,6 +28,9 @@ export class PrefabStore {
   public instantiatePrefab<T>(id: string, name: string, scene: BaseScene, options: BaseOptions): T {
     const prefab = this.prefabClasses[id];
 
+    console.log('prefabClasses', this.prefabClasses);
+    console.log('prefab', prefab);
+
     if (!prefab) {
       throw new Error(`PrefabClass ${id} not found`);
     }

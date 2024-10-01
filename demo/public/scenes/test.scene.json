@@ -11,19 +11,22 @@
   ],
   "prefabs": {
     "sprite": {
-      "options": {
-        
+      "options": {        
         "type": "TextButton",
         "wordwrap": {
           "useAdvancedWrap": false,
           "width": 120
+        },
+        "position": {
+          "x": 0,
+          "y": 0
         }
       }
     },
     "textButton": {
       "type": "TextButton",
       "options": {
-        "type": "",
+        "type": "TextButton",
         "key": "sample",
         "text": "Hello World",
         "maxHeight": 112,

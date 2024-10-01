@@ -1,5 +1,6 @@
 import { GameState, ImageButton, PrefabStore } from '@dasheck0/phaser-boilerplate';
 
+
 export default class Second extends GameState {
   private readonly name = 'Second';
 

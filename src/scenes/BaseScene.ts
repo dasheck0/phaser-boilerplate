@@ -153,6 +153,8 @@ export abstract class BaseScene extends Phaser.Scene {
 
   private async loadPrefabs() {
     if (this.configuration) {
+      console.log('config', this.configuration);
+
       for (const name in this.configuration.prefabs) {
         const prefab = this.configuration.prefabs[name];
         PrefabStore.getInstance().instantiatePrefab(prefab.options.type, name, this, prefab.options);

@@ -1,3 +1,4 @@
+import Phaser from 'phaser';
 import { Config } from '../config';
 import RegisterPrefab from '../decorators/prefab.decorator';
 import { BaseScene } from '../scenes/BaseScene';
@@ -47,7 +48,7 @@ export default class Sprite extends Phaser.Physics.Arcade.Sprite implements Base
 
     this.scene.add.existing(this);
   }
+  shutdown(): void {}
 
-  initialize(): void {
-  }
+  initialize(): void {}
 }
