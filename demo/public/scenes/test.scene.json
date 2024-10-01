@@ -7,12 +7,39 @@
       "type": "image",
       "name": "sample",
       "url": "images/sample.png"
+    },
+    {
+      "name": "sample2",
+      "type": "sceneplugin",
+      "url": "dsad",
+      "sceneKey": "sample"
+    },
+    {
+      "type": "plugin",
+      "name": "sample4",
+      "url": "images/sample4.png"
+    },
+    {
+      "type": "audio",
+      "name": "sample3",
+      "url": "images/sample3.png"
+    },
+    {
+      "type": "spritesheet",
+      "name": "sample5",
+      "url": "images/sample5.png",
+      "frameHeight": 10,
+      "frames": 3,
+      "frameWidth": 10
     }
   ],
   "prefabs": {
     "sprite": {
-      "options": {        
+      "options": {       
         "type": "TextButton",
+        "key": "sample",
+        "animation": "tint",
+        "text": "Hello World",         
         "wordwrap": {
           "useAdvancedWrap": false,
           "width": 120
@@ -23,8 +50,19 @@
         }
       }
     },
+    "imageButton": {
+      "options": {
+        "type": "ImageButton",
+        "animation": "tint",
+        "animationDuration": 0.4,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "key": "sample"        
+      }
+    },
     "textButton": {
-      "type": "TextButton",
       "options": {
         "type": "TextButton",
         "key": "sample",
